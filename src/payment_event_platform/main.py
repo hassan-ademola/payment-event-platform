@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 
-app = FastAPI(title="Payment Event Platform")
+from payment_event_platform.settings import Settings
 
+settings = Settings()
+app = FastAPI(title=settings.app_name)
 
 @app.get("/health")
 def health() -> dict[str, str]:
